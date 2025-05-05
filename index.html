@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Архіватор</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📦 Архіватор</h1>
+      <div class="controls">
+        <button id="select-files">Оберіть файли</button>
+        <button id="select-dest">Вибрати папку збереження</button>
+      </div>
+      <ul id="file-list" class="file-list">
+        <!-- Сюди динамічно підставлятимуться шляхи файлів -->
+      </ul>
+      <div class="archive-name-group">
+        <input
+          id="archive-name"
+          type="text"
+          placeholder="Назва архіву (без .zip)"
+        />
+        <button id="create-archive">Створити архів</button>
+      </div>
+      <p id="message" class="message"></p>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

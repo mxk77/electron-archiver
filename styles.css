@@ -1,0 +1,99 @@
+/* --- Базові стилі та світла тема --- */
+:root {
+  --bg: #f5f7fa;
+  --card-bg: #ffffff;
+  --primary: #4a90e2;
+  --primary-hover: #357ab8;
+  --text: #333333;
+  --radius: 16px;
+  --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 360px;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.file-list li {
+  background: var(--bg);
+  margin-bottom: 0.4rem;
+  padding: 0.5rem;
+  border-radius: calc(var(--radius) / 2);
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+
+.archive-name-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#archive-name {
+  flex: 2;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+}
+
+.message {
+  text-align: center;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
