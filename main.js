@@ -22,21 +22,31 @@ function createWindow() {
 
 app.whenReady().then(createWindow);
 
-// Відкриття діалогу для вибору файлів
+// — Відкриття діалогу для вибору файлів
 ipcMain.handle('open-file-dialog', async () => {
   const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {
+    title: 'Оберіть файли для архівації',
     properties: ['openFile', 'multiSelections']
   });
   return canceled ? [] : filePaths;
 });
 
-// Відкриття діалогу для вибору папки/файлу збереження
-ipcMain.handle('save-archive-dialog', async () => {
-  const { canceled, filePath } = await dialog.showSaveDialog(mainWindow, {
-    defaultPath: 'archive.zip',
-    filters: [{ name: 'ZIP', extensions: ['zip'] }]
+// — Відкриття діалогу для вибору директорій
+ipcMain.handle('open-dir-dialog', async () => {
+  const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {
+    title: 'Оберіть директорії для архівації',
+    properties: ['openDirectory', 'multiSelections']
   });
-  return canceled ? null : filePath;
+  return canceled ? [] : filePaths;
+});
+
+
+// — Відкриття діалогу для вибору папки призначення
+ipcMain.handle('open-dest-dialog', async () => {
+  const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {
+    properties: ['openDirectory']
+  });
+  return canceled ? null : filePaths[0];
 });
 
 // Створення архіву
